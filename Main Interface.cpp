@@ -115,7 +115,7 @@ class Playlist
 		}
 		void add_song()
 		{
-      // allocate size + 1 songs 
+     			 // allocate size + 1 songs 
 			Song* temp = new Song[size + 1];
 			
 			      // copy songs over to the new array
@@ -132,21 +132,89 @@ class Playlist
 			delete [] songs;
 			songs = temp;
 		}
+		void access_song()
+		{
+			int choice;
+			system("cls");
+			cout<<"Do you wish to access a Song by "<<"\n (1) Name or\n (2) Serial Number ? "<<endl;
+			cout<<"Press 0 to go back...";
+			
+				cin>>choice;
+				switch(choice)
+				{
+					case 0:
+							return;
+						break;
+					case 1:
+						//Search by Name
+						break;
+					case 2:
+						//search by Serial Number
+						break;
+					default:
+						cout<<"You selected "<<choice<<".\nNo such option exists... \nPress any key to try again";
+						getch();
+				}
+			
+		}
+		void update_song()
+		{
+			//update info about song
+		}
+		void delete_song()
+		{
+			int choice;
+			system("cls");
+			cout<<"Do you wish to Delete a Song by "<<"\n (1) Name or\n (2) Serial Number ? "<<endl;
+			cout<<"Press 0 to go back...";
+			
+				cin>>choice;
+				switch(choice)
+				{
+					case 0:
+							return;
+						break;
+					case 1:
+						//delete by Name
+						break;
+					case 2:
+						//delete by Serial Number
+						break;
+					default:
+						cout<<"You selected "<<choice<<".\nNo such option exists... \nPress any key to try again";
+						getch();
+				}
+		}
+		void get_size()
+		{
+			//get total number of songs in the playlist
+		}
+		bool IsEmpty()
+		{
+			//returns true if playlist is empty
+			if(size==0)
+				return true;
+			else
+				return false;
+//			if(p1.IsEmpty())
+//			{
+//				cout<<"empty";
+//			}
+//			else
+//				cout<<"filled";
+		}
+		
 };
 
 int main()
 {
 	Playlist p1;
 	p1.displayAll();
-	getch();
-	p1.add_song();
-	p1.add_song();
-	
-	p1.add_song();
-	p1.add_song();
-	p1.displayAll();
-	getch();
+
 	
 	
 	return 0;
 }
+
+// add_songs(); works alright now. Took some time but worth it!
+
