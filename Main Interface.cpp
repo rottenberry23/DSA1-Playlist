@@ -206,13 +206,73 @@ class Playlist
 		
 };
 
+void MenuInterface()
+{
+	int choice;
+	//Main_menu:				//add goto jump for repeated method of calling menu;
+	system("cls");
+	cout<<"Enter a number to perform its respective operation: "
+		<<"\n (1) Initialize an Empty Playlist"
+		<<"\n (2) Add a Song to the Playlist"
+		<<"\n (3) Update Song Details in the Playlist"
+		<<"\n (4) Remove a Song from the Playlist"
+		<<"\n (5) Check the size of the Playlist"
+		<<"\n (6) Check if Playlist is Empty"
+		<<"\n (7) Exit";
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:		//create new empty playlist
+			
+			break;
+		case 2:		//add songs
+			
+			break;
+			
+		case 3:		//update info
+			
+			break;
+		case 4:		//remove song
+			
+			break;
+		case 5:		//check size
+			
+			break;
+			
+		case 6:		//IsEmpty();
+			
+			break;
+		case 7:
+			return;
+			break;
+		default:
+			cout<<"You selected "<<choice<<".\nNo such option exists... \nPress any key to try again";
+			getch();
+			//goto Main_menu;
+	}
+	
+}
+
 int main()
 {
-	Playlist p1;
-	p1.displayAll();
+	
+/*		//Add this so this runs only at the start of the program then MenuInterface() takes over
 
+	system("cls");
+	cout<<"\tWelcome to Playlist Management System "
+		<<"\n\tDesigned by Muhammad Hammad "
+		<<"\n\t----\"This was a real pain to make\"--- "
+		<<endl<<endl<<endl
+		<<"Press any key to continue to the actual program";
+		getch();
+
+*/
+	MenuInterface();
 	
-	
+/*
+	system("cls");
+	cout<<"Aww leaving so soon ? Well in any case goodbye";
+*/
 	return 0;
 }
 
