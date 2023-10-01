@@ -51,7 +51,7 @@ class Song
 		{
 			string name, artist;
 			float duration;
-			//system("cls");
+			system("cls");
 			cout<<"Enter Name of Song: ";
 			cin>>name;
 			cout<<"Enter Name of the Artist: ";
@@ -61,7 +61,8 @@ class Song
 			set_name(name);
 			set_artist(artist);
 			set_duration(duration);
-			cout<<endl<<"Information for Song \""<<name<<"\" has been set! "
+			cout<<endl
+				<<"Information for Song \" "<<name<<" \" has been set! "
 				<<"\nPress any key to continue...";
 			getch();			
 		}	
@@ -112,58 +113,25 @@ class Playlist
 				}
 			}
 		}
-//		void add_song()
-//		{
-//			if(size == 0)
-//			{
-//				songs= new Song[1];
-//				songs[0].set_info();
-//				size++;
-//			}
-//			else
-//			{
-//				size++;
-//				Song* temp = new Song[size];
-//				for(int x=0;x<size-2;x++)
-//				{
-//					temp[x] = songs[x];
-//				}
-//				cout<<"HERE 1";
-//				temp[size-1].set_info();
-//				cout<<"here 2";
-//				
-//				delete [] songs;
-//				songs = new Song[size];
-//				for(int x = 0;x<size;x++)
-//				{
-//					
-//					songs[x] = temp[x];
-//					cout<<"HERERE2";
-//				
-//				}
-//				delete [] temp;	
-//			}
-//			
-//		}
-  void add_song()
-  {
+		void add_song()
+		{
       // allocate size + 1 songs 
-      Song* temp = new Song[size + 1];
-
-      // copy songs over to the new array
-      for(int x=0;x<size;x++)
-          temp[x] = songs[x];
-
-      // set the information for the last song added
-      temp[size].set_info();
-
-      // adjust the size to the new amount
-      ++size;
-
-     // delete the old array and set songs to the new array
-      delete [] songs;
-      songs = temp;
-   }
+			Song* temp = new Song[size + 1];
+			
+			      // copy songs over to the new array
+			for(int x=0;x<size;x++)
+			temp[x] = songs[x];
+			
+			      // set the information for the last song added
+			temp[size].set_info();
+			
+			      // adjust the size to the new amount
+			++size;
+			
+			     // delete the old array and set songs to the new array
+			delete [] songs;
+			songs = temp;
+		}
 };
 
 int main()
@@ -171,6 +139,9 @@ int main()
 	Playlist p1;
 	p1.displayAll();
 	getch();
+	p1.add_song();
+	p1.add_song();
+	
 	p1.add_song();
 	p1.add_song();
 	p1.displayAll();
