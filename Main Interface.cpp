@@ -166,6 +166,33 @@ class Playlist
 		
 		void update_song()			//update info about song
 		{
+			int n;
+			displayAll();
+			cout<<"Enter Serial No. of Song u wish to update (0 to cancel): ";
+			cin>>n;
+			if(n==0)
+				return;
+			cout<<endl<<endl
+				<<songs[n-1].get_name()<<" is the song you wish to update... \n";
+			
+			string name, artist;
+			float duration;
+
+			cout<<"Enter Name of Song: ";
+			cin>>name;
+			cout<<"Enter Name of the Artist: ";
+			cin>>artist;
+			cout<<"Enter the Duration of the Song: ";
+			cin>>duration;
+			
+			songs[n-1].set_name(name);
+			songs[n-1].set_artist(artist);
+			songs[n-1].set_duration(duration);
+			
+			cout<<endl
+				<<"Information for Song \" "<<name<<" \" has been set! "
+				<<"\nPress any key to continue...";
+			getch();
 			
 		}
 		
@@ -307,7 +334,7 @@ void MenuInterface()
 			break;
 			
 		case 5:		//Update Song
-			
+			p->update_song();
 			goto Main_menu;
 			break;
 			
