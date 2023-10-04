@@ -168,12 +168,19 @@ class Playlist
 		{
 			
 		}
+		
 		void delete_song()
 		{
 			int Sno,y=0;		//y is counter for *songs
 			system("cls");
+			if(size == 0)
+			{
+				cout<<"Can't delete anthing if playlist is empty...\nPress any key to continue...";
+				getch();
+				return;
+			}
 			displayAll();
-			cout<<"Enter serial number of song you wish to Delete ...";
+			cout<<"\n\nEnter serial number of song you wish to Delete ...";
 			cout<<"Press 0 to go back...";
 			cin>>Sno;
 			
@@ -191,34 +198,26 @@ class Playlist
 					temp[x]= songs[y];
 					++y;
 				}
+				cout<<songs[Sno].get_name()<<" has been deleted from playlist...\npress any key to continue...";
 				delete [] songs;
 				--size;
 				songs = temp;
-			}
-			
-			
-			
-			
+				getch();
+				
+			}			
 			
 				
 		}
-		void get_size()
+		int get_size()
 		{
-			//get total number of songs in the playlist
+			return size;
 		}
-		bool IsEmpty()
+		bool IsEmpty()		//checks if a playlist is empty
 		{
-			//returns true if playlist is empty
 			if(size==0)
 				return true;
 			else
 				return false;
-//			if(p1.IsEmpty())
-//			{
-//				cout<<"empty";
-//			}
-//			else
-//				cout<<"filled";
 		}
 		
 		void songs_namelist()
@@ -255,11 +254,13 @@ void MenuInterface()
 		<<"\n (4) Remove a Song from the Playlist"
 		<<"\n (5) Update Song Details in the Playlist"
 		<<"\n (6) Check the size of the Playlist"
-		<<"\n (7) Exit"
-		<<endl<<endl<<" ";
+		<<"\n (7) View All Songs"
+		<<"\n (8) Exit"
+		<<endl<<endl<<" Selection: ";
 	cin>>choice;
-	if(choice!=1 && check)
+	if(choice!=1 && !check)
 	{
+		system("cls");
 		cout<<"You must Initialze a playlist first before you can perform any other commands...\n\nPress any key to continue...";
 		getch();
 		goto Main_menu;
@@ -277,27 +278,57 @@ void MenuInterface()
 			getch();
 			goto Main_menu;
 			break;
-		case 2:		//add songs
+			
+		case 2:		// IsEmpty();
+			system("cls");
+			if(p->IsEmpty())
+			{
+				cout<<"Playlist\" "<<Name<<" \" is Empty";
+				cout<<"\nPress any key to continue...";
+				getch();
+			}
+			else
+			{
+				cout<<"Playlist\" "<<Name<<" \" is Not Empty";
+				cout<<"\nPress any key to continue...";
+				getch();
+			}
+			goto Main_menu;
+			break;
+			
+		case 3:		//Add Song
 			p->add_song();
-			goto Main_menu;			
+			goto Main_menu;	
 			break;
 			
-		case 3:		//update info
-			
-			break;
 		case 4:		//remove song
 			p->delete_song();
-			break;
-		case 5:		//check size
-			
+			goto Main_menu;
 			break;
 			
-		case 6:		//IsEmpty();
+		case 5:		//Update Song
 			
+			goto Main_menu;
+			break;
+			
+		case 6:		//Check Size;
+			system("cls");
+			cout<<"Current Size of Playlist \" " << p->get_name()<<" \" is : " << p->get_size()<<" songs..."
+			<<"\nPress any key to continue...";
+				
+			getch();
+			goto Main_menu;
 			break;
 		case 7:
+			p->displayAll();
+			cout<<"\nPress any key to continue...";
+			getch();
+			goto Main_menu;
+			
+		case 8:
 			return;
 			break;
+			
 		default:
 			cout<<"You selected "<<choice<<".\nNo such option exists... \nPress any key to try again";
 			getch();
@@ -321,22 +352,25 @@ int main()
 
 */
 
-//	MenuInterface();
+	MenuInterface();
 	
 /*
 	system("cls");
 	cout<<"Aww leaving so soon ? Well in any case goodbye";
 */
 
-	Playlist p;
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.displayAll();
-	p.delete_song();
-	
-	p.displayAll();
+//	Playlist p;
+//	cout<<p.get_size();
+//	getch();
+//	p.add_song();
+//	p.add_song();
+//	p.add_song();
+//	p.add_song();
+//	p.displayAll();
+//	
+//	p.delete_song();
+//	
+//	p.displayAll();
 	return 0;
 }
 
