@@ -1,6 +1,8 @@
 # DSA1-Playlist
 **Multi-Dimensional Dynamic Array for Music Playlist**
+
 **Data Structures and Algorithms Assignment 1
+
 Muhammad Hammad**
 
 Implementation of a multi-dimensional dynamic array data structure to create and manage a music playlist. 
