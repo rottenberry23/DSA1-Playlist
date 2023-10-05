@@ -264,6 +264,52 @@ class Playlist
 			}
 		}
 		
+		//	PART 2 : MANAGEMENT: 
+		void Sorting()
+		{
+			int choice;
+			cout<<"HOw do you wish to sort out your playlist? "
+				<<"\n(1). Alphabetically "
+				<<"\n(2). Duration wise "<<endl;
+			cin>>choice;
+			if(choice ==1)
+			{
+				Song swap;
+				Song * temp = new Song[size];
+				
+				for(int x=0; x<size;x++)
+				{
+					for(int y=0; y<size;y++)
+					{
+						if(songs[x].get_name() > songs[y].get_name())
+							{
+								swap = songs[x];
+								songs[x]=songs[y];
+								songs[y]=swap;
+							}
+					}
+				}
+				int y=size;
+				for(int x=0;x<size;x++)
+				{
+					temp[x]=songs[y-1];
+					--y;
+				}
+				delete [] songs;
+				songs = temp;
+				cout<<"Playlist has been sorted Alphabetically...";
+				return;
+			}
+			else if(choice ==2)
+			{
+				
+			}
+			else
+			{
+				
+			}
+		}
+		
 };
 
 void MenuInterface()
@@ -379,25 +425,24 @@ int main()
 
 */
 
-	MenuInterface();
+//	MenuInterface();
 	
 /*
 	system("cls");
 	cout<<"Aww leaving so soon ? Well in any case goodbye";
 */
 
-//	Playlist p;
-//	cout<<p.get_size();
-//	getch();
-//	p.add_song();
-//	p.add_song();
-//	p.add_song();
-//	p.add_song();
-//	p.displayAll();
-//	
-//	p.delete_song();
-//	
-//	p.displayAll();
+	Playlist p;
+	p.add_song();
+	p.add_song();
+	p.add_song();
+	p.add_song();
+	p.displayAll();
+	
+	p.Sorting();
+	getch();
+	
+	p.displayAll();
 	return 0;
 }
 
