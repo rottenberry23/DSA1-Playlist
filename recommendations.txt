@@ -1,0 +1,62 @@
+Maroon_5	Animals
+Maroon_5	Closure
+Maroon_5	Girls_like_you
+Maroon_5	I_Ain't_Worried
+Maroon_5	Who_I_Am
+Bruno_Mars	After_Last_Night
+Bruno_Mars	Billionaire
+Bruno_Mars	Blast_Off
+Bruno_Mars	Chunky
+The_Beatles	Please_Please_Me
+The_Beatles	Revolver
+The_Beatles	Rubber_Soul
+The_Beatles	Let_it_be
+The_Beatles	Act_Naturally
+Artic_Monkeys	I_Wanna_Be_Yours
+Artic_Monkeys	Do_I_Wanna_Know
+Artic_Monkeys	Do_Me_a_Favour
+Artic_Monkeys	I_Want_It_All
+Artic_Monkeys	R_U_Mine
+Ariana_Grande	Bad_Desicions
+Ariana_Grande	Bang_Bang
+Ariana_Grande	Best_Mistake
+Ariana_Grande	Better_Days
+Ariana_Grande	Better_Left_Unsaid
+Adele		All_I_Ask
+Adele		Be_Divine
+Adele		Can_I_Get_It
+Adele		Easy_On_Me
+Adele		DayDreamer
+Miley_Cyrus	Adore_You
+Miley_Cyrus	Am_I_Dreaming
+Miley_Cyrus	Angels_Like_You
+Miley_Cyrus	Attention
+Miley_Cyrus	Bad_Karma
+Miley_Cyrus	Bad_Mood
+Ellie_Goulding	Army
+Ellie_Goulding	ANything_Could_Happen
+Ellie_Goulding	Around_U
+Ellie_Goulding	Atlantis
+Ellie_Goulding	Baby
+Ellie_Goulding	BitterSweet
+The_Score	Better_Than_One
+The_Score	This_Beating_Heart
+The_Score	Money_Run_Low
+The_Score	Run_Like_a_Rebel
+Selene_Gomez	Always_Mine
+Selene_Gomez	A_Boy_Like_That
+Selene_Gomez	Call_me
+Selene_Gomez	Only_Love
+Selene_Gomez	Sukiyaki
+Selene_Gomez	Ice_Cream
+Selene_Gomez	Sweet_dreams
+
+
+
+
+
+
+
+
+
+

@@ -235,10 +235,10 @@ class Playlist
 			
 				
 		}
+		
 		int get_size()
-		{
-			return size;
-		}
+		{	return size;	}
+		
 		bool IsEmpty()		//checks if a playlist is empty
 		{
 			if(size==0)
@@ -323,7 +323,7 @@ class Playlist
 			}
 		}
 		
-		void Rearrange()
+		void Rearrange()		//swap
 		{
 			int to_swap, swap_with;
 			displayAll();
@@ -338,6 +338,56 @@ class Playlist
 			songs[swap_with-1] = swap;
 			cout<<"\n The songs have been swapped with each other!!!\nPress any key to continue";
 			getch();
+		}
+		
+		void recommendations()		//based on most listened to artist
+		{
+			system("cls");
+			int counter[size];
+			int i1;			//indexes of top 3 artists songs 
+			ifstream file("recommendations.txt");
+			for(int x=0;x<size;x++)		//sets all counts to 1
+			{
+				counter[x]= 1;
+			}
+			for(int x=0;x<size;x++)		//counts number of diff artists
+			{
+				for(int y=0;y<size;y++)
+				{
+					if(songs[x].get_artist()==songs[y].get_artist())
+						++counter[x];					
+				}
+			}
+			int first= counter[0], second= counter[0];
+			for(int x=1; x<size;x++)		//to get count of repeated artists in the playlist to recommend songs from top first listened to artists
+			{
+				if(counter[x]==0)
+					continue;
+				else if(first<counter[x])
+					first = counter[x];
+			}			
+			for(int x=0;x<size;x++)
+			{
+				if(first==counter[x])
+					i1=x;				
+			}
+			cout<<"You listen to This Artist the Most : "
+				<<endl
+				<<songs[i1].get_artist()
+				<<endl;	
+			cout<<"press any key to get recommendation for songs : ";
+			getch();
+			string n, art;
+			while(!file.eof())
+			{
+				file >>art >> n;
+				if(art == songs[i1].get_artist())
+				{
+					cout<<"Name : "<<n<<"\t"<<"Artist : "<<art<<endl;
+				}
+			}
+			cout<<"\n\nPress any key to continue...";
+			getch();				
 		}
 		
 };
@@ -448,7 +498,8 @@ void MenuInterface()
 			break;
 			
 		case 10:	//get recommendations
-			
+			p->recommendations();
+			goto Main_menu;
 			break;
 			
 		case 11:
@@ -465,9 +516,6 @@ void MenuInterface()
 
 int main()
 {
-	
-/*				//Add this so this runs only at the start of the program then MenuInterface() takes over
-
 	system("cls");
 	cout<<"\tWelcome to Playlist Management System "
 		<<"\n\tDesigned by Muhammad Hammad "
@@ -476,25 +524,11 @@ int main()
 		<<"Press any key to continue to the actual program";
 		getch();
 
-*/
+	MenuInterface();	
 
-//	MenuInterface();
-	
-/*
 	system("cls");
 	cout<<"Aww leaving so soon ? Well in any case goodbye";
-*/
 
-	Playlist p;
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.Rearrange();
-	
-	p.displayAll();
 	return 0;
 }
-
-// add_songs(); works alright now. Took some time but worth it!
 
