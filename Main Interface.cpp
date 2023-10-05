@@ -289,7 +289,8 @@ class Playlist
 							}
 					}
 				}
-				cout<<"Playlist has been sorted Alphabetically...";
+				cout<<"Playlist has been sorted Alphabetically...\nPress any key to continue";
+				getch();
 				return;
 			}
 			else if(choice ==2)	//sort by smallest to largest duration
@@ -309,7 +310,8 @@ class Playlist
 							}
 					}
 				}
-				cout<<"Playlist has been sorted from smallest to largest duration...";
+				cout<<"Playlist has been sorted from smallest to largest duration...\npress any key to continue";
+				getch();
 				return;
 			}
 			else
@@ -319,6 +321,23 @@ class Playlist
 				getch();
 				return ;
 			}
+		}
+		
+		void Rearrange()
+		{
+			int to_swap, swap_with;
+			displayAll();
+			cout<<"\n\nEnter Serial Number of Song you wish to Move : ";
+			cin>>to_swap;
+			cout<<"\n\nEnter Serial Number of Song you wish to Swap with : ";
+			cin>>swap_with;
+			
+			Song swap;
+			swap = songs[to_swap-1];
+			songs[to_swap-1] = songs[swap_with-1];
+			songs[swap_with-1] = swap;
+			cout<<"\n The songs have been swapped with each other!!!\nPress any key to continue";
+			getch();
 		}
 		
 };
@@ -342,8 +361,12 @@ void MenuInterface()
 		<<"\n (7) View All Songs"
 		
 		<<"\n\nPart 2:"
-		<<"\n (8) Sort your Playlist"
-		<<"\n (8) Exit"
+		<<"\n (8) Sort your Playlist		(alphabetically/duration)"
+		<<"\n (9) Reorder your Playlist		(swap songs)"
+		
+		<<"\n\nBONUS TASK:"
+		<<"\n (10) Get Recommnedations"
+		<<"\n\n (11) Exit"
 		<<endl<<endl<<" Selection: ";
 	cin>>choice;
 	if(choice!=1 && !check)
@@ -413,7 +436,22 @@ void MenuInterface()
 			getch();
 			goto Main_menu;
 			
-		case 8:
+		case 8:		//Sort songs 
+			p->displayAll();
+			p->Sorting();
+			goto Main_menu;			
+			break;
+			
+		case 9:		// Reorder your playlist (swap)
+			p->Rearrange();
+			goto Main_menu;
+			break;
+			
+		case 10:	//get recommendations
+			
+			break;
+			
+		case 11:
 			return;
 			break;
 			
@@ -440,24 +478,21 @@ int main()
 
 */
 
-	MenuInterface();
+//	MenuInterface();
 	
 /*
 	system("cls");
 	cout<<"Aww leaving so soon ? Well in any case goodbye";
 */
 
-//	Playlist p;
-//	p.add_song();
-//	p.add_song();
-//	p.add_song();
-//	p.add_song();
-//	p.displayAll();
-//	
-//	p.Sorting();
-//	getch();
-//	
-//	p.displayAll();
+	Playlist p;
+	p.add_song();
+	p.add_song();
+	p.add_song();
+	p.add_song();
+	p.Rearrange();
+	
+	p.displayAll();
 	return 0;
 }
 
