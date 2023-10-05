@@ -272,7 +272,7 @@ class Playlist
 				<<"\n(1). Alphabetically "
 				<<"\n(2). Duration wise "<<endl;
 			cin>>choice;
-			if(choice ==1)
+			if(choice ==1)	//sort alphatbetically
 			{
 				Song swap;
 				Song * temp = new Song[size];
@@ -300,9 +300,33 @@ class Playlist
 				cout<<"Playlist has been sorted Alphabetically...";
 				return;
 			}
-			else if(choice ==2)
+			else if(choice ==2)	//sort by smallest to largest duration
 			{
+				Song swap;
+				Song * temp = new Song[size];
 				
+				for(int x=0; x<size;x++)
+				{
+					for(int y=0; y<size;y++)
+					{
+						if(songs[x].get_duration() < songs[y].get_duration())
+							{
+								swap = songs[x];
+								songs[x]=songs[y];
+								songs[y]=swap;
+							}
+					}
+				}
+//				int y=size;
+//				for(int x=0;x<size;x++)
+//				{
+//					temp[x]=songs[y-1];
+//					--y;
+//				}
+//				delete [] songs;
+//				songs = temp;
+				cout<<"Playlist has been sorted Alphabetically...";
+				return;
 			}
 			else
 			{
