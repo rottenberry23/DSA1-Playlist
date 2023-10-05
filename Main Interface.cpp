@@ -281,7 +281,7 @@ class Playlist
 				{
 					for(int y=0; y<size;y++)
 					{
-						if(songs[x].get_name() > songs[y].get_name())
+						if(songs[x].get_name() < songs[y].get_name())
 							{
 								swap = songs[x];
 								songs[x]=songs[y];
@@ -289,14 +289,6 @@ class Playlist
 							}
 					}
 				}
-				int y=size;
-				for(int x=0;x<size;x++)
-				{
-					temp[x]=songs[y-1];
-					--y;
-				}
-				delete [] songs;
-				songs = temp;
 				cout<<"Playlist has been sorted Alphabetically...";
 				return;
 			}
@@ -317,20 +309,15 @@ class Playlist
 							}
 					}
 				}
-//				int y=size;
-//				for(int x=0;x<size;x++)
-//				{
-//					temp[x]=songs[y-1];
-//					--y;
-//				}
-//				delete [] songs;
-//				songs = temp;
-				cout<<"Playlist has been sorted Alphabetically...";
+				cout<<"Playlist has been sorted from smallest to largest duration...";
 				return;
 			}
 			else
 			{
-				
+				system("cls");
+				cout<<choice<<" is not an option...\nPress any key to continue...";
+				getch();
+				return ;
 			}
 		}
 		
@@ -344,7 +331,8 @@ void MenuInterface()
 	Playlist * p;
 	Main_menu:				//add goto jump for repeated method of calling menu;
 	system("cls");
-	cout<<"Enter a number to perform its respective operation: "
+	cout<<"Part 1:"
+		<<"\nEnter a number to perform its respective operation: "
 		<<"\n (1) Initialize an Empty Playlist"
 		<<"\n (2) Check if Playlist is Empty"
 		<<"\n (3) Add a Song to the Playlist"
@@ -352,6 +340,9 @@ void MenuInterface()
 		<<"\n (5) Update Song Details in the Playlist"
 		<<"\n (6) Check the size of the Playlist"
 		<<"\n (7) View All Songs"
+		
+		<<"\n\nPart 2:"
+		<<"\n (8) Sort your Playlist"
 		<<"\n (8) Exit"
 		<<endl<<endl<<" Selection: ";
 	cin>>choice;
@@ -449,24 +440,24 @@ int main()
 
 */
 
-//	MenuInterface();
+	MenuInterface();
 	
 /*
 	system("cls");
 	cout<<"Aww leaving so soon ? Well in any case goodbye";
 */
 
-	Playlist p;
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.add_song();
-	p.displayAll();
-	
-	p.Sorting();
-	getch();
-	
-	p.displayAll();
+//	Playlist p;
+//	p.add_song();
+//	p.add_song();
+//	p.add_song();
+//	p.add_song();
+//	p.displayAll();
+//	
+//	p.Sorting();
+//	getch();
+//	
+//	p.displayAll();
 	return 0;
 }
 
