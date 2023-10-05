@@ -27,7 +27,7 @@ class Song
 		int get_duration()
 			{	return duration;	}
 			
-		void set_info()
+		void set_info()		//for input
 		{
 			string name, artist;
 			float duration;
@@ -50,7 +50,7 @@ class Song
 			getch();			
 		}	
 		
-		void get_info(int n)
+		void get_info(int n)		//for output
 		{
 			string name, artist;
 			float duration;
@@ -196,7 +196,7 @@ class Playlist
 			
 		}
 		
-		void delete_song()
+		void delete_song()		//delete a song from the playlist
 		{
 			int Sno,y=0;		//y is counter for *songs
 			system("cls");
@@ -227,16 +227,13 @@ class Playlist
 				}
 				cout<<songs[Sno].get_name()<<" has been deleted from playlist...\npress any key to continue...";
 				delete [] songs;
-				--size;
+				--size;				//decrementing size cuz we deleted a song
 				songs = temp;
-				getch();
-				
-			}			
-			
-				
+				getch();				
+			}							
 		}
 		
-		int get_size()
+		int get_size()		//returns size of playlist
 		{	return size;	}
 		
 		bool IsEmpty()		//checks if a playlist is empty
@@ -247,7 +244,7 @@ class Playlist
 				return false;
 		}
 		
-		void songs_namelist()
+		void songs_namelist()		// gives a list of only tha names of songs
 		{
 			system("cls");
 			if(size==0)
@@ -265,7 +262,7 @@ class Playlist
 		}
 		
 		//	PART 2 : MANAGEMENT: 
-		void Sorting()
+		void Sorting()		//sorting aplhabetically and bu duration
 		{
 			int choice;
 			cout<<"HOw do you wish to sort out your playlist? "
@@ -323,7 +320,7 @@ class Playlist
 			}
 		}
 		
-		void Rearrange()		//swap
+		void Rearrange()		//swap postiions of two songs by index number
 		{
 			int to_swap, swap_with;
 			displayAll();
